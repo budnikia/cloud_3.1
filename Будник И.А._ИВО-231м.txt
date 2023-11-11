@@ -1,0 +1,13 @@
+help
+hdfs dfs -ls /
+hdfs dfs -mkdir -p /user/mgpu/budnikia
+base64 /dev/urandom | head -c 10000000 > bia.txt
+gzip -c bia.txt > bia.gz
+hdfs dfs -copyFromLocal /home/cloudera/bia.gz /user/mgpu/budnikia
+hdfs dfs -copyFromLocal /home/cloudera/bia.txt /user/mgpu/budnikia
+hdfs dfs -cat /user/mgpu/budnikia/bia.txt | head -n 20
+hdfs dfs -text /user/mgpu/budnikia/bia.txt | head -n 20
+hdfs dfs -text /user/mgpu/budnikia/bia.txt | tail -n 20
+hdfs dfs -cp /user/mgpu/budnikia/bia.txt /user/mgpu/budnikia/11.11.2023_bia.txt
+hdfs dfs -ls /user/mgpu/budnikia
+hdfs dfs -rm -r /user/mgpu/budnikia
